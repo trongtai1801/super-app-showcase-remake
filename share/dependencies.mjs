@@ -37,6 +37,11 @@ const deps = {
     eager: true,
     requiredVersion: "6.2.15",
   },
+  "@react-navigation/bottom-tabs": {
+    singleton: true,
+    eager: true,
+    requiredVersion: "^6.5.7",
+  },
   "@react-native-async-storage/async-storage": {
     singleton: true,
     eager: true,

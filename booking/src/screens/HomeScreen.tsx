@@ -19,7 +19,7 @@ const HomeScreen: React.FC<{}> = props => {
         <Text style={styles.buttonText}>{'Go to booking'}</Text>
       </TouchableOpacity>
     </SafeAreaView>
-  )
+  );
 };
 
 const styles = StyleSheet.create({

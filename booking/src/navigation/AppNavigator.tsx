@@ -4,7 +4,7 @@ import HomeScreen from '../screens/HomeScreen';
 import BookingScreen from '../screens/BookingScreen';
 
 const AppStack = createNativeStackNavigator();
-const AppNavigator = () => {
+const AppNavigator = (authContext: {token: string}) => {
   return (
     <AppStack.Navigator screenOptions={{headerShown: false}}>
       <AppStack.Screen name={'Home'} component={HomeScreen} />
