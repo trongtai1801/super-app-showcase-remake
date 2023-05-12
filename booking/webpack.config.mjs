@@ -1,6 +1,7 @@
 import path from 'path';
 import TerserPlugin from 'terser-webpack-plugin';
 import * as Repack from '@callstack/repack';
+import { deps } from '../share/dependencies.mjs';
 
 /**
  * More documentation, installation, usage, motivation and differences with Metro is available at:
@@ -230,6 +231,13 @@ export default (env) => {
           sourceMapFilename,
           assetsPath,
         },
+      }),
+      new Repack.plugins.ModuleFederationPlugin({
+        name: 'booking',
+        exposes: {
+          './AppNavigator': './src/navigation/AppNavigator',
+        },
+        shared: deps,
       }),
     ],
   };

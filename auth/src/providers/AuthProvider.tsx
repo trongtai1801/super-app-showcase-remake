@@ -5,19 +5,23 @@ import {Provider} from 'react-redux';
 import {PersistGate} from 'redux-persist/lib/integration/react';
 import {persistor, store, useAppSelector} from '../storage';
 
-const AuthProvider = ({children}: {children: React.ReactNode}) => {
+const AuthProvider = ({
+  children,
+}: {
+  children: (authContext: {token: string}) => React.ReactNode;
+}) => {
   const AuthProviderComponent = () => {
     const auth = useAppSelector(state => state.auth);
     const [authContext, setAuthContext] = useState({token: ''});
 
     useEffect(() => {
-      console.log('auth.token', auth.token)
+      console.log('auth.token', auth.token);
       setAuthContext({token: auth.token});
     }, [auth.token]);
 
     return (
       <AuthContext.Provider value={authContext}>
-        {children}
+        {children(authContext)}
       </AuthContext.Provider>
     );
   };
